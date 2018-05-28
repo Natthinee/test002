@@ -113,12 +113,12 @@ def bot():
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
     elif text in evaluation_form['eval']['ques'] or numberaa :
              question = random.choice(evaluation_form['eval']['quest9'])
-             if question!=listanswer:
                  face = random.choice(evaluation_form['eval']['wordap'])
                  listanswer.append(question)
                  replyQueue.append(face+question)
                  replyQueue.append(setscoreq9['score']['pprint'])
                  replyQueue.append(please['ple']['ple'])
+                 
             
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
@@ -138,6 +138,7 @@ def bot():
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
+    county(replyQuere)
     
     return 'OK', 200
  
@@ -160,7 +161,12 @@ def reply(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
-
+def county(text):
+  count = 0
+  count = count+1
+  return str(count)
+  
+  
 
 
 
