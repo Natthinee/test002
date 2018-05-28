@@ -122,7 +122,7 @@ def bot():
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
-    else:
+    elif text not in evaluation_form['eval']:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
 
   
