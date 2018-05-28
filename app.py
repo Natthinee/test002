@@ -122,12 +122,9 @@ def bot():
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
-     if text not in evaluation_form['eval']['greet']:
-         replyQueue.append('กอดอุ่นไม่ค่อย เข้าใจ พิมพ์ใหม่เเล้วกันเนอะ :)')
-     if text not in evaluation_form['eval']['ques']:
-         replyQueue.append('กอดอุ่นไม่เห็นเข้าใจเลย')
-     if text not in evaluation_form['eval']['number']
-         replyQueue.append('กอดอุ่นไม่รู้กอดอุ่นยังอ่อด๋อย')
+    else:
+         replyQueue.append('กอดอุ่นงง')
+      
       
   
 
