@@ -17,7 +17,7 @@ i=0
 questionnine = ''
 testttt = ''
 evaluation_form ={}
-number = ['0','1','2','3']
+numberaa = ['0','1','2','3']
 sayhi = open("sayhi.txt",encoding='utf-8-sig')
 sayhi = sayhi.read().split(',')
 answer = open("answer.txt","r",encoding='utf-8-sig')
@@ -110,7 +110,7 @@ def bot():
   #########################################################################################################
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
-    elif text in evaluation_form['eval']['ques'] or number :
+    elif text in evaluation_form['eval']['ques'] or numberaa :
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
          listanswer.append(question)
