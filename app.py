@@ -77,7 +77,7 @@ for j in evaluation_form['eval']['quest9'] :
         questionnine = face+question
         if listanswer == evaluation_form['eval']['quest9']:
            faceqe = questionnine
-          break;
+           break
                     
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
