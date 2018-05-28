@@ -117,7 +117,8 @@ def bot():
            if question != listanswer:
                 replyQueue.append(face+question) 
                 i+ = 1
-                replyQueue.append(i)
+                tt = ''+ i
+                replyQueue.append(tt)
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
