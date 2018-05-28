@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon May 28 21:11:50 2018
-
-@author: khimmee
-"""
-
 from flask import Flask, request
 import json
 import requests
@@ -119,13 +112,14 @@ def bot():
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
     elif text in evaluation_form['eval']['ques'] or numberaa :
-         replyQueue.append(que(text))
-         
-         ########เรียกใช้ฟังก์ชันข้างล่าง########    
-        
+             question = random.choice(evaluation_form['eval']['quest9'])
+             if question!=listanswer:
+                 face = random.choice(evaluation_form['eval']['wordap'])
+                 listanswer.append(question)
+                 replyQueue.append(face+question)
+                 replyQueue.append(setscoreq9['score']['pprint'])
+                 replyQueue.append(please['ple']['ple'])
             
-
-                
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
   ##########################################################################################################
@@ -146,6 +140,29 @@ def bot():
     reply(replyToken, replyQueue[:5])
     
     return 'OK', 200
+ 
+def reply(replyToken, textList):
+    # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
+    LINE_API = 'https://api.line.me/v2/bot/message/reply'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = []
+    for text in textList:
+        msgs.append({
+            "type":"text",
+            "text":text
+        })
+    data = json.dumps({
+        "replyToken":replyToken,
+        "messages":msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
+
+
+
 
 if __name__ == '__main__':
     app.run()
