@@ -16,7 +16,6 @@ scc = 0
 i=0 
 questionnine = ''
 testttt = ''
-number1 = ''
 evaluation_form ={}
 numberaa = ['0','1','2','3']
 sayhi = open("sayhi.txt",encoding='utf-8-sig')
@@ -111,13 +110,14 @@ def bot():
   #########################################################################################################
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
-    elif text in evaluation_form['eval']['ques']:
+    elif text in evaluation_form['eval']['ques'] or numberaa :
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
          listanswer.append(question)
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])        
+         replyQueue.append(please['ple']['ple'])
+                
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
   ##########################################################################################################
@@ -136,6 +136,7 @@ def bot():
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
+    
     return 'OK', 200
  
 def reply(replyToken, textList):
@@ -157,11 +158,6 @@ def reply(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
-
-  
-  
-
-
 
 if __name__ == '__main__':
     app.run()
