@@ -126,7 +126,7 @@ def bot():
              replyQueue.append(face+question)
              replyQueue.append(setscoreq9['score']['pprint'])
              replyQueue.append(please['ple']['ple'])
-             replyQueue.append(str(len(listanswer)))
+             
         
             
 
