@@ -106,12 +106,20 @@ def bot():
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
     
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
-    response_dict = ['สวัสดี','ดีดี']
+    
     res = ['ไก่จิก','เด็ก','โอ่ง']
-    if text in response_dict:
-         replyQueue.append(text)
-    elif text in res:
-         replyQueue.append('อักษรแม่กลาง')
+    if text in evaluation_form['eval']['greet']:
+         replyQueue.append(random.choice(evaluation_form['eval']['answer']))
+    elif text in evaluation_form['eval']['ques']  :
+            for j in evaluation_form['eval']['quest9'] :
+                if question != listanswer:
+                      question = random.choice(evaluation_form['eval']['quest9'])
+                      face = random.choice(evaluation_form['eval']['wordap'])
+                      listanswer.append(question)
+                      replyQueue.append(face+question)
+                      replyQueue(setscoreq9['score']['pprint'])
+                      replyQueue(please['ple']['ple'])
+      
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
