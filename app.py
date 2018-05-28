@@ -16,6 +16,7 @@ qqq2 =[]
 q2q = ''
 scc = 0
 i=0 
+testttt = ''
 evaluation_form ={}
 number = ['0','1','2','3']
 sayhi = open("sayhi.txt",encoding='utf-8-sig')
@@ -115,9 +116,10 @@ def bot():
            face = random.choice(evaluation_form['eval']['wordap'])
            listanswer.append(question)
            if question != listanswer:
-                replyQueue.append(face+question) 
                 i+ = 1
-                replyQueue.append(str(i))
+                testttt = str(i)
+                replyQueue.append(face+question) 
+                replyQueue.append(testttt)
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
