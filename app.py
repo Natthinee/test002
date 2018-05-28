@@ -16,6 +16,7 @@ qqq2 =[]
 q2q = ''
 scc = 0
 i=0 
+questionnine = ''
 testttt = ''
 evaluation_form ={}
 number = ['0','1','2','3']
@@ -68,6 +69,13 @@ quest8['quest8'] = {'quest01':'มีความคิดอยากตาย 
 ans8 = {}
 ans8['ans'] = {'an' :'ไม่ได้',
                'ay' : 'ได้'}
+for j in evaluation_form['eval']['quest9'] :
+    if question != listanswer:
+        question = random.choice(evaluation_form['eval']['quest9'])
+        face = random.choice(evaluation_form['eval']['wordap'])
+        listanswer.append(question)
+        questionnine = face+question
+                    
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
@@ -112,12 +120,8 @@ def bot():
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
     elif text in evaluation_form['eval']['ques']  :
-           question = random.choice(evaluation_form['eval']['quest9'])
-           face = random.choice(evaluation_form['eval']['wordap'])
-           listanswer.append(question)
-           if question != listanswer:
-                replyQueue.append(face+question) 
-                replyQueue.append("1")
+         replyQueue.append(face+question) 
+                
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
