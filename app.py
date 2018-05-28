@@ -75,6 +75,9 @@ for j in evaluation_form['eval']['quest9'] :
         face = random.choice(evaluation_form['eval']['wordap'])
         listanswer.append(question)
         questionnine = face+question
+        if listanswer == evaluation_form['eval']['quest9']:
+           faceqe = questionnine
+          break;
                     
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
@@ -120,7 +123,7 @@ def bot():
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
     elif text in evaluation_form['eval']['ques']  :
-         replyQueue.append(questionnine) 
+         replyQueue.append(faceqe) 
                 
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
