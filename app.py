@@ -118,6 +118,7 @@ def bot():
                  replyQueue.append(face+question)
                  replyQueue.append(setscoreq9['score']['pprint'])
                  replyQueue.append(please['ple']['ple'])
+                 replyQueue.append(county())
                  
             
     else:
@@ -138,7 +139,7 @@ def bot():
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
-    county(replyQuere)
+    
     
     return 'OK', 200
  
@@ -161,7 +162,7 @@ def reply(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
-def county(text):
+def county():
   count = 0
   count = count+1
   return str(count)
