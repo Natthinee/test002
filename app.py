@@ -119,14 +119,9 @@ def bot():
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
     elif text in evaluation_form['eval']['ques'] or numberaa :
-         if number1 == '':
-             question = random.choice(evaluation_form['eval']['quest9'])
-             face = random.choice(evaluation_form['eval']['wordap'])
-             listanswer.append(question)
-             replyQueue.append(face+question)
-             replyQueue.append(setscoreq9['score']['pprint'])
-             replyQueue.append(please['ple']['ple'])
-             
+         replyQueue.append(que(text))
+         
+         ########เรียกใช้ฟังก์ชันข้างล่าง########    
         
             
 
@@ -171,6 +166,118 @@ def reply(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
+
+def que(text):
+    if text in evaluation_form['eval']['greet'] :
+            print('--' + random.choice(evaluation_form['eval']['answer'] ))
+  
+    elif text in evaluation_form['eval']['ques']  :
+            for j in evaluation_form['eval']['quest9'] :
+                if question != listanswer:
+                    question = random.choice(evaluation_form['eval']['quest9'])
+                    face = random.choice(evaluation_form['eval']['wordap'])
+                    listanswer.append(question)
+                    print(face+question)
+                    print(setscoreq9['score']['pprint'])
+                    print(please['ple']['ple'])
+                    #print(len(d))
+                    n = int(input())
+                    nn = n
+                    score = score + nn
+                    i+=1
+                    if i == 9:
+                            print(score)
+                            i=0
+                            #break
+                            for h in evaluation_form['eval']['qq2']:
+                                if q2q != qqq2:
+                                    q2q = random.choice(qq2)
+                                    qqq2.append(qq2)
+                                    print(q2q)
+                                    print(please['ple']['ple1'])
+                                    aq2 = input()
+                                    if aq2 == select2['selc']['selc01']:
+                                        sc+=1
+                                        i+=1
+                                    elif aq2 == select2['selc']['selc02']:
+                                        sc+=0
+                                        i+=1
+                                        if i==2:
+                                            print(sc)
+                                            #break
+                            
+                                            print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest01'])
+                                            print(please['ple']['ple2'])
+                                            input1 = input()
+                                            if input1 == select2['selc']['selc02']:
+                                                scc = 0 + scc
+                                            else:
+                                                scc = 1 + scc
+                                                print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest02'])
+                                                print(please['ple']['ple2'])
+                                            input2 = input()
+                                            if input2== select2['selc']['selc02']:
+                                                scc = 0+scc
+                                            else:
+                                                scc = 2+scc
+                                    
+                                            print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest03'])
+                                            print(please['ple']['ple2'])
+                                            input3 = input()
+                                            if input3 == select2['selc']['selc02']:
+                                                scc = 0+scc
+                                            else:
+                                                scc = 6+scc
+                                                print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest031'])
+                                                print(lease['ple']['ple3'])
+                                            input31 = input()
+                                            if input31 == ans8['ans']['ay']:
+                                                scc = scc + 0
+                                            else:
+                                                scc = scc + 8
+                                            print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest04'])
+                                            print(please['ple']['ple3'])
+                                            input4 = input()
+                                            if input4 == ans8['ans']['ay']:
+                                                scc = scc + 0
+                                            else:
+                                                scc = scc + 8
+                                            print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest05'])
+                                            print(please['ple']['ple3'])
+                                            input5 = input()
+                                            if input5 == ans8['ans']['ay']:
+                                                scc = scc + 0
+                                            else:
+                                                scc = scc + 9
+                                            print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest06'])
+                                            print(please['ple']['ple3'])
+                                            input6 = input()
+                                            if input6 == ans8['ans']['ay']:
+                                                scc = scc + 0
+                                            else:
+                                                scc = scc + 4
+                                            print(random.choice(evaluation_form['eval']['wordap'])+ quest8['quest8']['quest07'])
+                                            print(please['ple']['ple3'])
+                                            input7 = input()
+                                            if input7 == ans8['ans']['ay']:
+                                                scc = scc + 0
+                                            else:
+                                                scc = scc + 10
+                                            print(quest8['quest8']['quest01'])
+                                            print(please['ple']['ple3'])
+                                            input8 = input()
+                                            if input8 == ans8['ans']['ay']:
+                                                scc = scc + 0
+                                            else:
+                                                scc = scc + 4
+                                            #scc = input1 + input2 + input3 + input4 + input5 + input6 + input7 + input8
+                                            print(scc)
+                                            #print(sc)
+                                            continue
+
+
+    
+
 
 
 
