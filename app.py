@@ -41,8 +41,11 @@ def bot():
     
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
     response_dict = ['สวัสดี','ดีดี']
+    res = ['ไก่จิก','เด็ก','โอ่ง']
     if text in response_dict:
          replyQueue.append(text)
+    elif text in res:
+         replyQueue.append('อักษรแม่กลาง')
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
