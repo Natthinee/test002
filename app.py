@@ -111,14 +111,11 @@ def bot():
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
     elif text in evaluation_form['eval']['ques']  :
-            for j in evaluation_form['eval']['quest9'] :
-                if question != listanswer:
-                      question = random.choice(evaluation_form['eval']['quest9'])
-                      face = random.choice(evaluation_form['eval']['wordap'])
-                      listanswer.append(question)
-                      replyQueue.append(face+question)
-                      
-      
+           question = random.choice(evaluation_form['eval']['quest9'])
+           face = random.choice(evaluation_form['eval']['wordap'])
+           listanswer.append(question)
+           if question != listanswer:
+                replyQueue.append(face+question)  
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
