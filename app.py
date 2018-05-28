@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 28 21:11:50 2018
+
+@author: khimmee
+"""
+
 from flask import Flask, request
 import json
 import requests
@@ -16,6 +23,7 @@ scc = 0
 i=0 
 questionnine = ''
 testttt = ''
+number1 = ''
 evaluation_form ={}
 numberaa = ['0','1','2','3']
 sayhi = open("sayhi.txt",encoding='utf-8-sig')
@@ -111,12 +119,17 @@ def bot():
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
     elif text in evaluation_form['eval']['ques'] or numberaa :
-         question = random.choice(evaluation_form['eval']['quest9'])
-         face = random.choice(evaluation_form['eval']['wordap'])
-         listanswer.append(question)
-         replyQueue.append(face+question)
-         replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])
+         if number1 == '':
+             question = random.choice(evaluation_form['eval']['quest9'])
+             face = random.choice(evaluation_form['eval']['wordap'])
+             listanswer.append(question)
+             replyQueue.append(face+question)
+             replyQueue.append(setscoreq9['score']['pprint'])
+             replyQueue.append(please['ple']['ple'])
+             replyQueue.append(len(listanswer))
+        
+            
+
                 
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
@@ -158,6 +171,8 @@ def reply(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
+
+
 
 if __name__ == '__main__':
     app.run()
