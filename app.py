@@ -122,6 +122,14 @@ def bot():
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
+    elif text in evaluation_form['eval']['number']:
+         question = random.choice(evaluation_form['eval']['quest9'])
+         face = random.choice(evaluation_form['eval']['wordap'])
+         listanswer.append(question)
+         replyQueue.append(face+question)
+         replyQueue.append(setscoreq9['score']['pprint'])
+         replyQueue.append(please['ple']['ple'])
+      
     else:
          replyQueue.append('กอดอุ่นงง')
       
