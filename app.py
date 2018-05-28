@@ -116,6 +116,7 @@ def bot():
            listanswer.append(question)
            if question != listanswer:
                 replyQueue.append(face+question)  
+                replyQueue.append("44")
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
@@ -131,7 +132,7 @@ def bot():
     #replyQueue.append('นี่คือรูปแบบข้อความที่รับส่ง')
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    replyQueue.append(msg_in_string)
+    #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
     
     return 'OK', 200
