@@ -117,11 +117,7 @@ def bot():
              listanswer.append(question)
              replyQueue.append(face+question)
              replyQueue.append(setscoreq9['score']['pprint'])
-             replyQueue.append(please['ple']['ple'])
-             
-               
-                 
-            
+             replyQueue.append(please['ple']['ple'])        
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
   ##########################################################################################################
@@ -140,8 +136,6 @@ def bot():
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
-    
-    
     return 'OK', 200
  
 def reply(replyToken, textList):
