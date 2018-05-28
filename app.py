@@ -121,7 +121,7 @@ def bot():
              if text in numberaa:
                 number1+ = text
                 replyQueue.append(number1)
-              return 'OK',200
+             
                
                  
             
