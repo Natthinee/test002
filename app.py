@@ -115,8 +115,9 @@ def bot():
            face = random.choice(evaluation_form['eval']['wordap'])
            listanswer.append(question)
            if question != listanswer:
-                replyQueue.append(face+question)  
-                replyQueue.append("44")
+                replyQueue.append(face+question) 
+                i+ = 1
+                replyQueue.append(i)
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
        
