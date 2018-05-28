@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 28 21:11:50 2018
+
+@author: khimmee
+"""
+
 from flask import Flask, request
 import json
 import requests
@@ -15,7 +22,7 @@ q2q = ''
 scc = 0
 i=0 
 evaluation_form ={}
-numberaa = ['0','1','2','3']
+number= ['0','1','2','3']
 sayhi = open("sayhi.txt",encoding='utf-8-sig')
 sayhi = sayhi.read().split(',')
 answer = open("answer.txt","r",encoding='utf-8-sig')
@@ -66,7 +73,6 @@ ans8 = {}
 ans8['ans'] = {'an' :'ไม่ได้',
                'ay' : 'ได้'}
 
-
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
 # ห้ามลบคำว่า Bearer ออกนะครับเมื่อนำ access token มาใส่
@@ -105,23 +111,22 @@ def bot():
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
     
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
-    # response_dict = {'สวัสดี':'สวัสดีครับ'}
-    # if text in response_dict:
-    #     replyQueue.append(reponse_dict[text])
-    # else:
-    #     replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
+    
+ 
     if text in evaluation_form['eval']['greet']:
          replyQueue.append(random.choice(evaluation_form['eval']['answer']))
-    elif text in evaluation_form['eval']['ques']:
+    elif text in evaluation_form['eval']['ques'] or number :
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
-         replyQueue.append(question)
+         listanswer.append(question)
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
                 
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
+
+  
        
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ non-exact match
     # โดยที่มี method ชื่อ find_closest_sentence ที่ใช้การเปรียบเทียบประโยค
@@ -132,10 +137,9 @@ def bot():
     # replyQueue.append(reponse_dict[closest])
    
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
-    replyQueue.append('นี่คือรูปแบบข้อความที่รับส่ง')
-    
+    #replyQueue.append('นี่คือรูปแบบข้อความที่รับส่ง')
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    replyQueue.append(msg_in_string)
+    #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
     
     return 'OK', 200
@@ -161,5 +165,5 @@ def reply(replyToken, textList):
     return
 
 if __name__ == '__main__':
-      app.run()
+    app.run()
 
