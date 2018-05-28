@@ -117,9 +117,9 @@ def bot():
                     question = random.choice(evaluation_form['eval']['quest9'])
                     face = random.choice(evaluation_form['eval']['wordap'])
                     listanswer.append(question)
-                    replyqueue(face+question)
-                    replyqueue(setscoreq9['score']['pprint'])
-                    replyqueue(please['ple']['ple'])
+                    replyQueue(face+question)
+                    replyQueue(setscoreq9['score']['pprint'])
+                    replyQueue(please['ple']['ple'])
                 
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
