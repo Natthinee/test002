@@ -113,24 +113,33 @@ def bot():
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
     
  
-    if text in evaluation_form['eval']['greet']:
-         replyQueue.append(random.choice(evaluation_form['eval']['answer']))
-    elif text in evaluation_form['eval']['ques'] :
-         question = random.choice(evaluation_form['eval']['quest9'])
-         face = random.choice(evaluation_form['eval']['wordap'])
-         listanswer.append(question)
-         replyQueue.append(face+question)
-         replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])       
-    elif text in evaluation_form['eval']['number']:
-         question = random.choice(evaluation_form['eval']['quest9'])
-         face = random.choice(evaluation_form['eval']['wordap'])
-         listanswer.append(question)
-         replyQueue.append(face+question)
-         replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])  
-    else:
-         replyQueue.append('กอดอุ่นงง')
+    #if text in evaluation_form['eval']['greet']:
+         #replyQueue.append(random.choice(evaluation_form['eval']['answer']))
+    #elif text in evaluation_form['eval']['ques'] :
+         #question = random.choice(evaluation_form['eval']['quest9'])
+         #face = random.choice(evaluation_form['eval']['wordap'])
+         #listanswer.append(question)
+         #replyQueue.append(face+question)
+         #replyQueue.append(setscoreq9['score']['pprint'])
+         #replyQueue.append(please['ple']['ple'])       
+    #elif text in evaluation_form['eval']['number']:
+         #question = random.choice(evaluation_form['eval']['quest9'])
+         #face = random.choice(evaluation_form['eval']['wordap'])
+         #listanswer.append(question)
+         #replyQueue.append(face+question)
+         #replyQueue.append(setscoreq9['score']['pprint'])
+         #replyQueue.append(please['ple']['ple'])  
+    #else:
+         #replyQueue.append('กอดอุ่นงง')
+     if text in ['ดี','ดีดี','ดีน้า','ดีจ้า']:
+        number_of_player = countSc()+1
+            for line in evaluation_form['eval']['ques']:
+                push(line,[name +' has joined the room! ('+str(number_of_player)+')'])
+
+        # Acknowledge player that recently joined the room.
+        replyStack.append('You have joined the room! ('+str(number_of_player)+')')
+        reply(replyToken, replyStack)
+        return 'OK',200
       
       
   
