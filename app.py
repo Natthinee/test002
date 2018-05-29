@@ -119,14 +119,16 @@ def bot():
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
          listanswer.append(question)
+         score = countSc()+1
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
+         replyQueue.append(str(score))
+        
     elif text in evaluation_form['eval']['number']:
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
          listanswer.append(question)
-         score = 1
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
@@ -158,6 +160,14 @@ def bot():
     reply(replyToken, replyQueue[:5])
     
     return 'OK', 200
+  
+def countSc():
+    count = 0
+        for line in evaluation_form['eval']['ques']:
+            if len(line) == 0:
+                continue
+            count += 1
+    return count
  
 def reply(replyToken, textList):
     # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
