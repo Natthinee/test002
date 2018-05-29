@@ -136,8 +136,8 @@ def bot():
             for line in evaluation_form['eval']['ques']:
                 push(line,[name +' has joined the room! ('+str(number_of_player)+')'])
                 replyStack.append('You have joined the room! ('+str(number_of_player)+')')
-                reply(replyToken, replyStack)
-        return 'OK',200
+               
+      
       
       
   
