@@ -121,25 +121,14 @@ def bot():
          listanswer.append(question)
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])
-         #score = countSc()+1
-         #replyQueue.append(str(score))
-         ##reply(replyToken, replyStack)
-         #return 'OK',200
-
-        
+         replyQueue.append(please['ple']['ple'])       
     elif text in evaluation_form['eval']['number']:
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
          listanswer.append(question)
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])
-         
-          
-         
-        
-      
+         replyQueue.append(please['ple']['ple'])  
     else:
          replyQueue.append('กอดอุ่นงง')
       
@@ -163,14 +152,6 @@ def bot():
     reply(replyToken, replyQueue[:5])
     
     return 'OK', 200
-  
-def countSc():
-    count = 0
-        for line in evaluation_form['eval']['ques']:
-            if len(line) == 0:
-                continue
-            count += 1
-    return count
  
 def reply(replyToken, textList):
     # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
@@ -191,6 +172,73 @@ def reply(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
+def pushSticker(userID, packId, stickerId):
+    LINE_API = 'https://api.line.me/v2/bot/message/push'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = [{
+        "type": "sticker",
+        "packageId": packId,
+        "stickerId": stickerId
+    }]
+    data = json.dumps({
+        "to": userID,
+        "messages":msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
+    
+def pushImage(userID, role):
+    LINE_API = 'https://api.line.me/v2/bot/message/push'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = [{
+        "type": "image",
+        "originalContentUrl": "https://werewolf-bot-server.herokuapp.com/img?role="+role,
+        "previewImageUrl": "https://werewolf-bot-server.herokuapp.com/img?role="+role+"_p"
+    }]
+    data = json.dumps({
+        "to": userID,
+        "messages":msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
+    
+
+def push(userID, textList):
+    LINE_API = 'https://api.line.me/v2/bot/message/push'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = []
+    for text in textList:
+        msgs.append({
+            "type":"text",
+            "text":text
+        })
+    data = json.dumps({
+        "to": userID,
+        "messages":msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
+
+def getContent(id):
+    LINE_API = 'https://api.line.me/v2/bot/message/'+str(id)+'/content'
+    r = requests.get(LINE_API, headers={'Authorization': LINE_API_KEY})
+    r = r.content
+    return r
+
+def getProfiles(id):
+    LINE_API = 'https://api.line.me/v2/bot/profile/'+str(id)
+    r = requests.get(LINE_API, headers={'Authorization': LINE_API_KEY})
+    r = r.content
+    return json.loads(r.decode('utf8'))
 
 if __name__ == '__main__':
     app.run()
