@@ -152,7 +152,15 @@ def bot():
     reply(replyToken, replyQueue[:5])
     
     return 'OK', 200
- 
+  
+def countPlayer():
+    count = 0
+    for line in evaluation_form['eval']['ques']:
+          if len(line) == 0:
+              continue
+              count += 1
+    return count
+  
 def reply(replyToken, textList):
     # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
