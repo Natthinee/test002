@@ -153,7 +153,7 @@ def bot():
     
     return 'OK', 200
   
-def countPlayer():
+def countSC():
     count = 0
     for line in evaluation_form['eval']['ques']:
           if len(line) == 0:
