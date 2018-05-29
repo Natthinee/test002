@@ -119,11 +119,11 @@ def bot():
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
          listanswer.append(question)
-         score = countSc()+1
+         #score = countSc()+1
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
-         replyQueue.append(str(score))
+         #replyQueue.append(str(score))
         
     elif text in evaluation_form['eval']['number']:
          question = random.choice(evaluation_form['eval']['quest9'])
