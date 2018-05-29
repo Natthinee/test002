@@ -133,8 +133,8 @@ def bot():
          #replyQueue.append('กอดอุ่นงง')
      if text in ['ดี','ดีดี','ดีน้า','ดีจ้า']:
         number_of_player = countSC()+1
-            for line in evaluation_form['eval']['ques']:
-                replyStack.append('You have joined the room! ('+str(number_of_player)+')')
+        for line in evaluation_form['eval']['ques']:
+              replyStack.append('You have joined the room! ('+str(number_of_player)+')')
                
       
       
