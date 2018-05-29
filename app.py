@@ -110,30 +110,18 @@ def bot():
     # lower เพื่อให้เป็นตัวพิมพ์เล็ก strip เพื่อนำช่องว่างหัวท้ายออก ครับ
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
     
-    # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
-    
-    ii=0
-    if text in evaluation_form['eval']['greet']:
-         replyQueue.append(random.choice(evaluation_form['eval']['answer']))
-    elif text in evaluation_form['eval']['ques'] :
-         question = random.choice(evaluation_form['eval']['quest9'])
-         face = random.choice(evaluation_form['eval']['wordap'])
-         listanswer.append(question)
-         while(ii>0):
-         replyQueue.append(face+question)
-         replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])       
-    elif text in evaluation_form['eval']['number']:
-         question = random.choice(evaluation_form['eval']['quest9'])
-         face = random.choice(evaluation_form['eval']['wordap'])
-         listanswer.append(question)
-         replyQueue.append(face+question)
-         replyQueue.append(setscoreq9['score']['pprint'])
-         replyQueue.append(please['ple']['ple'])  
-    else:
-         replyQueue.append('กอดอุ่นงง')
+
    
-               
+    if text in ['join','play','เล่น','เล่นด้วย']:
+        # Acknowledge all player that already in room.
+        name = getProfiles(userID)['displayName']
+        number_of_player = countPlayer()+1
+            for line in evaluation_form['eval']:
+                push(line,[name +' has joined the room! ('+str(number_of_player)+')'])
+
+        replyStack.append('You have joined the room! ('+str(number_of_player)+')')
+        reply(replyToken, replyStack)
+        return 'OK',200      
       
       
       
