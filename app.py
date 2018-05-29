@@ -135,10 +135,8 @@ def bot():
         number_of_player = countSc()+1
             for line in evaluation_form['eval']['ques']:
                 push(line,[name +' has joined the room! ('+str(number_of_player)+')'])
-
-        # Acknowledge player that recently joined the room.
-        replyStack.append('You have joined the room! ('+str(number_of_player)+')')
-        reply(replyToken, replyStack)
+                replyStack.append('You have joined the room! ('+str(number_of_player)+')')
+                reply(replyToken, replyStack)
         return 'OK',200
       
       
