@@ -57,7 +57,7 @@ def bot():
    
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
     #replyQueue.append('นี่คือรูปแบบข้อความที่รับส่ง')
-    k=replyQueue.append(text)
+    replyQueue.append(text)
     f = open('tes.txt','w',encoding='utf-8')
     f.write(k)
     
