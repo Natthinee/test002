@@ -112,8 +112,8 @@ def bot():
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
     response_dict = {'สวัสดี':'สวัสดีครับ'}
     if text in response_dict:
-        with open('tes.txt', 'a') as data_write:
-            data_write.write(userID + "\n")
+        #with open('tes.txt', 'a') as data_write:
+            #data_write.write(userID + "\n")
         replyQueue.append(reponse_dict[text])
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
