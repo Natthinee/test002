@@ -57,9 +57,9 @@ def bot():
    
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
     #replyQueue.append('นี่คือรูปแบบข้อความที่รับส่ง')
-    replyQueue.append(text)
-   
-
+    k=replyQueue.append(text)
+    f = open('tes.txt','w',encoding='utf-8')
+    f.write(k)
     
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     replyQueue.append(msg_in_string)
