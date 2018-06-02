@@ -139,6 +139,7 @@ def bot():
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
     #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
+    return 'OK',200
     reply12(replyToken, replyQueue[:5])
 
     return 'OK', 200
