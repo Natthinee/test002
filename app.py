@@ -111,10 +111,8 @@ def bot():
 
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
     
-    if text in 'สวัสดีจ้า':
-        #with open('tes.txt', 'a') as data_write:
-            #data_write.write(userID + "\n")
-        replyQueue.append(text)
+     if text in evaluation_form['eval']['greet'] :
+            replyQueue.append(random.choice(evaluation_form['eval']['answer'] ))
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
 
