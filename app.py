@@ -140,6 +140,7 @@ def bot():
     #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
     return 'OK',200
+  
     reply12(replyToken, replyQueue[:5])
 
     return 'OK', 200
@@ -176,7 +177,7 @@ def reply12(replyToken, textList):
     for text in textList:
         msgs.append({
             "type": "text",
-            "text": text
+            "text": 'สวัสดี'
         })
     data = json.dumps({
         "replyToken": replyToken,
