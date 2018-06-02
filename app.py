@@ -8,6 +8,7 @@ global LINE_API_KEY
 LINE_API_KEY = 'Bearer IzXs2WdxBaxjM/BTdVQ43pEYgt1O8BRRrEAOztjHPMfRUmM0BYtD4VRZg7MLMSyi1mWqI3vdPl08HfmsCUiBM1QJKc0OF89EfbEPIHEG+pKHO85//3Zvo+Qcf9MDZoFwe2m+cjasnyvwYZ3xPQNWPgdB04t89/1O/w1cDnyilFU='
 
 app = Flask(__name__)
+ 
 @app.route('/')
 def index():
     return 'This is chatbot server.'
@@ -27,9 +28,7 @@ def bot():
     # ส่วนนี้ดึงข้อมูลพื้นฐานออกมาจาก json (เผื่อ)
     userID =  msg_in_json["events"][0]['source']['userId']
     msgType =  msg_in_json["events"][0]['message']['type']
-    firebase = firebase.FirebaseApplication('https://godaun-4e6d1.firebaseio.com/', None)
-    result = firebase.post('/godaun-4e6d1', {'ID': userID})
-
+    
     # ตรวจสอบว่า ที่ส่งเข้ามาเป็น text รึป่าว (อาจเป็น รูป, location อะไรแบบนี้ได้ครับ)
     # แต่ก็สามารถประมวลผลข้อมูลประเภทอื่นได้นะครับ
     # เช่น ถ้าส่งมาเป็น location ทำการดึง lat long ออกมาทำบางอย่าง เป็นต้น
