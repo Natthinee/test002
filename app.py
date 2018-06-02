@@ -124,7 +124,7 @@ def bot():
          return 'OK',200
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
-         reply12(replyToken, replyQueue[:5])
+         reply1(replyToken, replyQueue[:5])
          return 'OK', 200
 
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ non-exact match
@@ -166,7 +166,7 @@ def reply(replyToken, textList):
     requests.post(LINE_API, headers=headers, data=data)
     return
 
-def reply12(replyToken, textList):
+def reply1(replyToken, textList):
     # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
     headers = {
@@ -176,8 +176,10 @@ def reply12(replyToken, textList):
     msgs = []
     for text in textList:
         msgs.append({
-            "type": "text",
-            "text": 'สวัสดี'
+            "type": "sticker",
+            "packageId": "1",
+            "stickerId": "2583"
+
         })
     data = json.dumps({
         "replyToken": replyToken,
