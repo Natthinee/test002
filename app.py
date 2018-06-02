@@ -2,7 +2,7 @@ from flask import Flask, request
 import json
 import requests
 import random
-from firebase import firebase
+
 
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
