@@ -137,8 +137,9 @@ def bot():
 
 
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    replyQueue.append(msg_in_string)
+    #replyQueue.append(msg_in_string)
     reply(replyToken, replyQueue[:5])
+    reply12(replyToken, replyQueue[:5])
 
     return 'OK', 200
 
@@ -163,6 +164,25 @@ def reply(replyToken, textList):
     requests.post(LINE_API, headers=headers, data=data)
     return
 
+def reply12(replyToken, textList):
+    # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
+    LINE_API = 'https://api.line.me/v2/bot/message/reply'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = []
+    for text in textList:
+        msgs.append({
+            "type": "text",
+            "text": text
+        })
+    data = json.dumps({
+        "replyToken": replyToken,
+        "messages": msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
 
 if __name__ == '__main__':
     app.run()
