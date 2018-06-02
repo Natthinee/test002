@@ -120,8 +120,12 @@ def bot():
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
+         reply(replyToken, replyQueue[:5])
+         return 'OK',200
     else:
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
+         reply12(replyToken, replyQueue[:5])
+         return 'OK', 200
 
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ non-exact match
     # โดยที่มี method ชื่อ find_closest_sentence ที่ใช้การเปรียบเทียบประโยค
@@ -137,13 +141,9 @@ def bot():
 
 
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    #replyQueue.append(msg_in_string)
-    reply(replyToken, replyQueue[:5])
-    return 'OK',200
+    #replyQueue.append(msg_in_string
   
-    reply12(replyToken, replyQueue[:5])
-
-    return 'OK', 200
+  
 
 
 def reply(replyToken, textList):
