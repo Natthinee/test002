@@ -19,17 +19,17 @@ scc = 0
 i = 0
 evaluation_form = {}
 number = ['0', '1', '2', '3']
-sayhi = open("C://Users//khimmee//Desktop//sayhi.txt", encoding='utf-8-sig')
+sayhi = open("sayhi.txt", encoding='utf-8-sig')
 sayhi = sayhi.read().split(',')
-answer = open("C://Users//khimmee//Desktop//answer.txt", "r", encoding='utf-8-sig')
+answer = open("answer.txt", "r", encoding='utf-8-sig')
 answer = answer.read().split(',')
-ques = open("C://Users//khimmee//Desktop//Ques.txt", "r", encoding='utf-8-sig')
+ques = open("Ques.txt", "r", encoding='utf-8-sig')
 ques = ques.read().split(',')
-quest9 = open("C://Users//khimmee//Desktop//Quest9.txt", "r", encoding='utf-8-sig')
+quest9 = open("Quest9.txt", "r", encoding='utf-8-sig')
 quest9 = quest9.read().split(',')
-wordappende = open("C://Users//khimmee//Desktop//wordappende.txt", "r", encoding='utf-8-sig')
+wordappende = open("wordappende.txt", "r", encoding='utf-8-sig')
 wordappende = wordappende.read().split(',')
-qq2 = open("C://Users//khimmee//Desktop//qq2.txt", "r", encoding='utf-8-sig')
+qq2 = open("qq2.txt", "r", encoding='utf-8-sig')
 qq2 = qq2.read().split(',')
 evaluation_form['eval'] = {'greet': sayhi,
                            'answer': answer,
