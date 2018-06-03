@@ -119,14 +119,10 @@ def bot():
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
          listanswer.append(question)
-         with open('tes.txt','r',encoding="utf8") as data_file:
-              k = data_file.readline()
-         replyQueue.append(k)
-         f.close()
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
-         reply(replyToken, replyQueue[:5])
+         reply1(replyToken, replyQueue[:5])
          return 'OK',200
     else:
          with open("tes.txt","a",encoding="utf8") as f:
