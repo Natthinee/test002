@@ -113,8 +113,6 @@ def bot():
     
     if text in evaluation_form['eval']['greet'] :
          replyQueue.append(random.choice(evaluation_form['eval']['answer'] ))
-         reply2(replyToken, replyQueue[:5])
-         return 'OK',200
     elif text in evaluation_form['eval']['ques']  :
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
