@@ -130,7 +130,7 @@ def bot():
     else:
          with open("tes.txt","a",encoding="utf8") as f:
              f.write('khim')
-         replyQueue.append('data_file)
+         replyQueue.append('data_file')
          reply(replyToken, replyQueue[:5])
          return 'OK', 200
 
