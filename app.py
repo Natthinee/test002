@@ -124,13 +124,13 @@ def bot():
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
-         replyQueue.append(data_file)
+         replyQueue.append(data_file.read())
          reply(replyToken, replyQueue[:5])
          return 'OK',200
     else:
          with open("tes.txt","a",encoding="utf8") as f:
              f.write('khim')
-         replyQueue.append('data_file')
+         replyQueue.append('งง')
          reply(replyToken, replyQueue[:5])
          return 'OK', 200
 
