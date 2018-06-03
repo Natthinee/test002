@@ -178,36 +178,26 @@ def reply2(replyToken, textList):
     msgs = []
     for text in textList:
         msgs.append({
-           "type": "template",
-           "altText": "this is a buttons template",
-           "template": {
-           "type": "buttons",
-           "actions": [
-          {
-          "type": "message",
-          "label": "Action 1",
-           "text": "Action 1"
-          },
-         {
-         "type": "message",
-         "label": "Action 2",
-         "text": "Action 2"
-        },
-        {
-        "type": "message",
-        "label": "Action 3",
-        "text": "Action 3"
-        },
-        {
-        "type": "message",
-        "label": "Action 4",
-        "text": "Action 4"
-         }
-         ],
-        "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
-        "title": "Title",
-        "text": "Text"
-         }
+          
+            "type": "template",
+            "altText": "this is a confirm template",
+            "template": {
+            "type": "confirm",
+            "text": "Are you sure?",
+            "actions": [
+               {
+                "type": "message",
+                "label": "Yes",
+                "text": "yes"
+               },
+              {
+               "type": "message",
+               "label": "No",
+               "text": "no"
+              }
+              ]
+             }
+          
          })
     data = json.dumps({
         "replyToken": replyToken,
