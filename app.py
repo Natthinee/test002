@@ -125,6 +125,8 @@ def bot():
          reply(replyToken, replyQueue[:5])
          return 'OK',200
     else:
+         with open("tes.txt","a",encoding="utf8") as f:
+             f.write('khim')
          replyQueue.append('ไม่รู้ว่าจะตอบอะไรดี TT')
          reply1(replyToken, replyQueue[:5])
          return 'OK', 200
