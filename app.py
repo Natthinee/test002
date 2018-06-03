@@ -200,18 +200,28 @@ def reply2(replyToken, textList):
              "type": "template",
              "altText": "this is a confirm template",
              "template": {
-                 "type": "confirm",
-                 "text": "Are you sure?",
+                 "type": "buttons",
+                 "text": "วันนี้คุณมีอาการรักไหม?",
                  "actions": [
                      {
                        "type": "message",
-                       "label": "Yes",
-                       "text": "yes"
+                       "label": "A",
+                       "text": "A"
                      },
                      {
                        "type": "message",
-                       "label": "No",
-                       "text": "no"
+                       "label": "B",
+                       "text": "B"
+                     },
+                     {
+                       "type": "message",
+                       "label": "C",
+                       "text": "C"
+                     },
+                     {
+                       "type": "message",
+                       "label": "D",
+                       "text": "D"
                      }
                  ]
            }
