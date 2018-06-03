@@ -118,27 +118,21 @@ def bot():
     elif text in evaluation_form['eval']['ques']  :
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
+         with open('tes.txt','r',encoding="utf8") as data_file:
+              data_file.read()
          listanswer.append(question)
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
+         replyQueue.append(data_file)
          reply(replyToken, replyQueue[:5])
          return 'OK',200
     else:
          with open("tes.txt","a",encoding="utf8") as f:
              f.write('khim')
-         with open('tes.txt','r',encoding="utf8") as data_file:
          replyQueue.append('data_file)
          reply(replyToken, replyQueue[:5])
          return 'OK', 200
-
-    # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ non-exact match
-    # โดยที่มี method ชื่อ find_closest_sentence ที่ใช้การเปรียบเทียบประโยค
-    # เพื่อค้นหาประโยคที่ใกล้เคียงที่สุด อาจใช้เรื่องของ word embedding มาใช้งานได้ครับ
-    # simple sentence embeddings --> https://openreview.net/pdf?id=SyK00v5xx
-    # response_dict = {'สวัสดี':'สวัสดีครับ'}
-    # closest = find_closest_sentence(response_dict, text)
-    # replyQueue.append(reponse_dict[closest])
 
 
     # ตอบข้อความ "นี่คือรูปแบบข้อความที่รับส่ง" กลับไป
@@ -146,7 +140,7 @@ def bot():
 
 
     # ทดลอง Echo ข้อความกลับไปในรูปแบบที่ส่งไปมา (แบบ json)
-    #replyQueue.append(msg_in_string
+    #replyQueue.append(msg_in_string)
   
   
 
