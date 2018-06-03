@@ -167,44 +167,6 @@ def reply(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
-
-def reply2(replyToken, textList):
-    # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
-    LINE_API = 'https://api.line.me/v2/bot/message/reply'
-    headers = {
-        'Content-Type': 'application/json; charset=UTF-8',
-        'Authorization': LINE_API_KEY
-    }
-    msgs = []
-    for text in textList:
-        msgs.append({
-          
-            "type": "template",
-            "altText": "this is a confirm template",
-            "template": {
-            "type": "confirm",
-            "text": "Are you sure?",
-            "actions": [
-               {
-                "type": "message",
-                "label": "Yes",
-                "text": "yes"
-               },
-              {
-               "type": "message",
-               "label": "No",
-               "text": "no"
-              }
-              ]
-             }
-          
-         })
-    data = json.dumps({
-        "replyToken": replyToken,
-        "messages": msgs
-    })
-    requests.post(LINE_API, headers=headers, data=data)
-    return
   def reply1(replyToken, textList):
     # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
     LINE_API = 'https://api.line.me/v2/bot/message/reply'
