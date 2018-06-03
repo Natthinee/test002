@@ -198,9 +198,10 @@ def reply1(replyToken, textList):
     msgs = []
     for text in textList:
         msgs.append({
-            "type": "sticker",
-            "packageId": "1",
-            "stickerId": "2583"
+           "type": "sticker",
+           "packageId": "2",
+           "stickerId": "1"
+}
 
         })
     data = json.dumps({
