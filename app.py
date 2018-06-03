@@ -178,7 +178,7 @@ def reply1(replyToken, textList):
         msgs.append({
              "type": "sticker",
              "packageId": "1",
-             "stickerId": "1"
+             "stickerId": "3"
         })
     data = json.dumps({
         "replyToken": replyToken,
