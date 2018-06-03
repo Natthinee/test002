@@ -113,6 +113,8 @@ def bot():
     
     if text in evaluation_form['eval']['greet'] :
          replyQueue.append(random.choice(evaluation_form['eval']['answer'] ))
+         reply2(replyToken, replyQueue[:5])
+         return 'OK',200
     elif text in evaluation_form['eval']['ques']  :
          question = random.choice(evaluation_form['eval']['quest9'])
          face = random.choice(evaluation_form['eval']['wordap'])
@@ -178,6 +180,53 @@ def reply1(replyToken, textList):
              "type": "sticker",
              "packageId": "1",
              "stickerId": "4"
+        })
+    data = json.dumps({
+        "replyToken": replyToken,
+        "messages": msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
+def reply2(replyToken, textList):
+    # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
+    LINE_API = 'https://api.line.me/v2/bot/message/reply'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = []
+    for text in textList:
+        msgs.append({
+             "type": "template",
+             "altText": "this is a buttons template",
+             "template": {
+               "type": "buttons",
+               "actions": [
+                 {
+                   "type": "message",
+                   "label": "Action 1",
+                   "text": "Action 1"
+                 },
+                 {
+                   "type": "message",
+                   "label": "Action 2",
+                   "text": "Action 2"
+                 },
+                 {
+                   "type": "message",
+                   "label": "Action 3",
+                   "text": "Action 3"
+                 },
+                 {
+                   "type": "message",
+                   "label": "Action 4",
+                   "text": "Action 4"
+                 }
+               ],
+               "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
+               "title": "Title",
+               "text": "Text"
+            }
         })
     data = json.dumps({
         "replyToken": replyToken,
