@@ -206,35 +206,7 @@ def reply2(replyToken, textList):
                      },
                      {
                        "type": "message",
-                       "label": "เป้นบางวัน",
-                       "text": "B"
-                     },
-                     {
-                       "type": "message",
-                       "label": "เป็นบ่อย",
-                       "text": "C"
-                     },
-                     {
-                       "type": "message",
-                       "label": "เป็นทุกวัน",
-                       "text": "D"
-                     }
-                 ]
-           },
-             "type": "template",
-             "altText": "this is a confirm template",
-             "template": {
-                 "type": "buttons",
-                 "text": 'ถามตอบ',
-                 "actions": [
-                     {
-                       "type": "message",
-                       "label": "ไม่มีเลย",
-                       "text": "A"
-                     },
-                     {
-                       "type": "message",
-                       "label": "เป้นบางวัน",
+                       "label": "เป็นบางวัน",
                        "text": "B"
                      },
                      {
