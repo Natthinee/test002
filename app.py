@@ -2,9 +2,6 @@ from flask import Flask, request
 import json
 import requests
 import random
-
-
-
 listanswer = []
 question = ''
 face = ''
@@ -202,22 +199,22 @@ def reply2(replyToken, textList):
                      {
                        "type": "message",
                        "label": "ไม่มีเลย",
-                       "text": "A"
+                       "text": "ไม่มีเลย"
                      },
                      {
                        "type": "message",
                        "label": "เป็นบางวัน",
-                       "text": "B"
+                       "text": "เป็นบางวัน"
                      },
                      {
                        "type": "message",
                        "label": "เป็นบ่อย",
-                       "text": "C"
+                       "text": "เป็นบ่อย"
                      },
                      {
                        "type": "message",
                        "label": "เป็นทุกวัน",
-                       "text": "D"
+                       "text": "เป็นทุกวัน"
                      }
                  ]
            }
