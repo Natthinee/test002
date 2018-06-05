@@ -227,6 +227,56 @@ def reply2(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
+  
+  def reply3(replyToken, textList):
+    # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
+    LINE_API = 'https://api.line.me/v2/bot/message/reply'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = []
+    for text in textList:
+        msgs.append({
+           "type": "template",
+           "altText": "this is a image carousel template",
+           "template": {
+               "type": "image_carousel",
+               "columns": [
+                {
+                    "imageUrl": "https://example.com/bot/images/item1.jpg",
+                    "action": {
+                        "type": "postback",
+                        "label": "Buy",
+                        "data": "action=buy&itemid=111"
+                }
+                },
+                {
+                    "imageUrl": "https://example.com/bot/images/item2.jpg",
+                    "action": {
+                        "type": "message",
+                        "label": "Yes",
+                        "text": "yes"
+                  }
+                  },
+                  {
+                    "imageUrl": "https://example.com/bot/images/item3.jpg",
+                    "action": {
+                        "type": "uri",
+                        "label": "View detail",
+                        "uri": "http://example.com/page/222"
+            }
+          }
+      ]
+  }
+
+        })
+    data = json.dumps({
+        "replyToken": replyToken,
+        "messages": msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
  
 if __name__ == '__main__':
     app.run()
