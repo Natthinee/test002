@@ -127,7 +127,7 @@ def bot():
          with open("tes.txt","a",encoding="utf8") as f:
              f.write('khim')
          replyQueue.append('งง')
-         reply(replyToken, replyQueue[:5])
+         reply3(replyToken, replyQueue[:5])
          return 'OK', 200
 
 
