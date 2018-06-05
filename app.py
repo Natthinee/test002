@@ -197,7 +197,7 @@ def reply2(replyToken, textList):
              "altText": "this is a confirm template",
              "template": {
                  "type": "buttons",
-                 "text": "วันนี้คุณมีอาการรักไหม?",
+                 "text": random.choice(evaluation_form['eval']['quest9']),
                  "actions": [
                      {
                        "type": "message",
