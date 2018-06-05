@@ -227,6 +227,35 @@ def reply2(replyToken, textList):
     })
     requests.post(LINE_API, headers=headers, data=data)
     return
+def reply3(replyToken, textList):
+    # Method สำหรับตอบกลับข้อความประเภท text กลับครับ เขียนแบบนี้เลยก็ได้ครับ
+    LINE_API = 'https://api.line.me/v2/bot/message/{messageId}/content'
+    headers = {
+        'Content-Type': 'application/json; charset=UTF-8',
+        'Authorization': LINE_API_KEY
+    }
+    msgs = []
+    for text in textList:
+        msgs.append({
+             "replyToken": "nHuyWiB7yP5Zw52FIkcQobQuGDXCTA",
+             "type": "message",
+             "timestamp": 1462629479859,
+             "source": {
+               "type": "user",
+               "userId": "U4af4980629..."
+             },
+             "message": {
+               "id": "325708",
+               "type": "audio"
+             }
+
+        })
+    data = json.dumps({
+        "replyToken": replyToken,
+        "messages": msgs
+    })
+    requests.post(LINE_API, headers=headers, data=data)
+    return
   
   
  
