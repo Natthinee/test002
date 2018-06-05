@@ -2,8 +2,7 @@ from flask import Flask, request
 import json
 import requests
 import random
-import pymongo
-from pymongo import MongoClient
+
 
 
 listanswer = []
@@ -125,9 +124,6 @@ def bot():
          replyQueue.append(face+question)
          replyQueue.append(setscoreq9['score']['pprint'])
          replyQueue.append(please['ple']['ple'])
-         client = MongoClient('mongodb://khimmy:Kk2047849@ds147030.mlab.com:47030/khim')
-         db  = client.khim.user
-         g = db.insert({'สวัสดี': replyQueue})
          reply1(replyToken, replyQueue[:5])
          return 'OK',200
     else:
