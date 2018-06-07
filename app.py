@@ -2,6 +2,9 @@ from flask import Flask, request
 import json
 import requests
 import random
+from flask.ext.pymongo import PyMongo
+import pymongo
+from pymongo import MongoClient
 listanswer = []
 question = ''
 face = ''
