@@ -71,6 +71,10 @@ ans8 = {}
 ans8['ans'] = {'an': 'ไม่ได้',
                'ay': 'ได้'}
 
+app.config['MONGO_DBNAME'] = 'khim'
+app.config['MONGO_URI'] = 'mongodb://khimmy:Kk2047849@ds147030.mlab.com:47030/khim'
+mongo = PyMongo(app)
+
 # ตรง YOURSECRETKEY ต้องนำมาใส่เองครับจะกล่าวถึงในขั้นตอนต่อๆ ไป
 global LINE_API_KEY
 # ห้ามลบคำว่า Bearer ออกนะครับเมื่อนำ access token มาใส่
@@ -110,11 +114,12 @@ def bot():
     # ตรงนี้ต้องแน่ใจว่า msgType เป็นประเภท text ถึงเรียกได้ครับ
     # lower เพื่อให้เป็นตัวพิมพ์เล็ก strip เพื่อนำช่องว่างหัวท้ายออก ครับ
     text = msg_in_json["events"][0]['message']['text'].lower().strip()
-
+    userr = mongo.db.user
     # ตัวอย่างการทำให้ bot ถาม-ตอบได้ แบบ exact match
     
     if text in evaluation_form['eval']['greet'] :
          replyQueue.append(random.choice(evaluation_form['eval']['answer'] ))
+         userr.insert({"Question": text, "Answer": replyQueue})
          reply2(replyToken, replyQueue[:5])
          return 'OK',200
     elif text in evaluation_form['eval']['ques']  :
@@ -127,8 +132,6 @@ def bot():
          reply(replyToken, replyQueue[:5])
          return 'OK',200
     else:
-         with open("tes.txt","a",encoding="utf8") as f:
-             f.write('khim')
          replyQueue.append('งง')
          reply3(replyToken, replyQueue[:5])
          return 'OK', 200
